@@ -1,0 +1,21 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Build') {
+            agent { label 'agent1' }
+            steps {
+                echo 'Building application on Agent 1'
+                sh 'ip addr'
+            }
+        }
+
+        stage('Test') {
+            agent { label 'agent2' }
+            steps {
+                echo 'Testing application on Agent 2'
+                sh 'ip addr'
+            }
+        }
+    }
+}
