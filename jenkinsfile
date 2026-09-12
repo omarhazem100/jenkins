@@ -8,6 +8,8 @@ pipeline {
                 stage('Agent 1') {
                     agent { label 'agent1' }
                     steps {
+                         sh 'sudo dnf install git -y'
+                         sh'git ls-remote https://github.com/omarhazem100/jenkins.git'
                         echo 'Hello from Agent 1 from SCM'
                         sh 'ip addr'
                     }
@@ -16,6 +18,8 @@ pipeline {
                 stage('Agent 2') {
                     agent { label 'agent2' }
                     steps {
+                        sh 'sudo dnf install git -y'
+                        sh'git ls-remote https://github.com/omarhazem100/jenkins.git'
                         echo 'Hello from Agent 2 from SCM'
                         sh 'ip addr'
                     }
